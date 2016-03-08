@@ -1,7 +1,7 @@
 <?php
 require_once('lib/config.php');
 require_once('lib/state.php');
-
+///*
 if (!State::refreshToken()) {
     // log in
     $uri = Config::OAuthURI() . '?client_id=' . urlencode(Config::clientId()) . '&response_type=code&redirect_uri=' . urlencode(Config::oauthCallbackURI()) . '&state=' . State::oauthState();

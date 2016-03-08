@@ -6,7 +6,6 @@ session_start();
  * User: olafjanssen
  * Date: 01/02/16
  * Time: 21:17
- *
  */
 class State {
 
@@ -19,11 +18,11 @@ class State {
   }
 
   public static function refreshToken() {
-    return $_COOKIE[sha1(self::courseId() . self::canvasDomain())];
+    return $_COOKIE['rt'];
   }
 
   public static function setRefreshToken($refreshToken) {
-    setcookie(sha1(self::courseId() . self::canvasDomain()), $refreshToken, time() + 3600 * 24 * 30, '/', Config::baseDomain(), true, true);
+    setcookie('rt', $refreshToken, time() + 3600 * 24 * 30, '/', Config::baseDomain(), true, true);
   }
 
   public static function oauthStateUri() {
